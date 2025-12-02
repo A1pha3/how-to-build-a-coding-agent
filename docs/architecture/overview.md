@@ -219,6 +219,6 @@ Agent 的行为可以通过以下方式定制：
 
 ## 下一步
 
-- 深入了解 [Agent 设计](./agent-design.md)（即将推出）
-- 学习 [工具系统](./tool-system.md)（即将推出）的实现细节
-- 理解 [事件循环](./event-loop.md)（即将推出）的工作机制
+- 深入了解 [Agent 设计](./agent-design.md)
+- 学习 [工具系统](./tool-system.md) 的实现细节
+- 理解 [事件循环](./event-loop.md) 的工作机制
