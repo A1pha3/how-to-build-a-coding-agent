@@ -173,19 +173,11 @@ if err != nil {
 
 ### 基础聊天流程
 
+以下示例展示了如何使用 Agent（需要先实现 Agent 结构体和相关函数）：
+
 ```go
-package main
-
-import (
-    "bufio"
-    "context"
-    "fmt"
-    "os"
-    
-    "github.com/anthropics/anthropic-sdk-go"
-)
-
-func main() {
+// 使用示例（需要配合完整的 Agent 实现）
+func exampleBasicChat() {
     // 1. 创建 Anthropic 客户端
     client := anthropic.NewClient()
     
