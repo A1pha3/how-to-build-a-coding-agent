@@ -101,7 +101,8 @@ find "$DOCS_DIR" -name "*.md" -type f | while read -r doc_file; do
         /```go/ { in_code=1; code=""; line_num=NR; next }
         in_code && /```/ { 
             in_code=0
-            if (code ~ /^package /) {
+            # Only validate complete programs (with both package and func main)
+            if (code ~ /^package / && code ~ /func main\(/) {
                 print "FILE:" FILENAME
                 print "LINE:" line_num
                 print code

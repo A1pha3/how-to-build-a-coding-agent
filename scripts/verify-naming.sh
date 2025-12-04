@@ -78,9 +78,12 @@ find "$DOCS_DIR" -name "*.md" -type f | while read -r file_path; do
 done > /tmp/naming_check.txt
 
 # 读取结果
-total_files=$(grep -c "✓\|✗" /tmp/naming_check.txt || echo "0")
-compliant_files=$(grep -c "✓" /tmp/naming_check.txt || echo "0")
-non_compliant_count=$(grep -c "✗" /tmp/naming_check.txt || echo "0")
+total_files=$(grep -c "✓\|✗" /tmp/naming_check.txt 2>/dev/null || echo "0")
+total_files=$(echo "$total_files" | tr -d '\n')
+compliant_files=$(grep -c "✓" /tmp/naming_check.txt 2>/dev/null || echo "0")
+compliant_files=$(echo "$compliant_files" | tr -d '\n')
+non_compliant_count=$(grep -c "✗" /tmp/naming_check.txt 2>/dev/null || echo "0")
+non_compliant_count=$(echo "$non_compliant_count" | tr -d '\n')
 
 cat /tmp/naming_check.txt
 rm -f /tmp/naming_check.txt
@@ -141,7 +144,7 @@ if [ $total_files -gt 0 ]; then
 fi
 
 # 列出不符合规范的文件
-if [ $non_compliant_count -gt 0 ]; then
+if [ "$non_compliant_count" -gt 0 ]; then
     cat >> "$REPORT_FILE" << EOF
 
 ## 不符合规范的文件
@@ -181,7 +184,7 @@ echo "报告已生成: $REPORT_FILE"
 echo ""
 
 # 返回状态
-if [ $non_compliant_count -eq 0 ]; then
+if [ "$non_compliant_count" -eq 0 ]; then
     echo -e "${GREEN}✓ 所有文件名都符合规范！${NC}"
     exit 0
 else

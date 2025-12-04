@@ -112,7 +112,8 @@ check_requirement "10.3" "docs/troubleshooting/common-issues.md"
 check_requirement "10.4" "docs/troubleshooting/common-issues.md"
 
 # 计算统计
-missing_count=$(grep -c "^MISSING" "$TEMP_RESULTS" || echo "0")
+missing_count=$(grep -c "^MISSING" "$TEMP_RESULTS" 2>/dev/null || echo "0")
+missing_count=$(echo "$missing_count" | tr -d '\n')
 
 # 计算覆盖率
 if [ $total_requirements -gt 0 ]; then
@@ -127,7 +128,7 @@ echo "验证结果"
 echo "=========================================="
 echo "总需求数: $total_requirements"
 echo "已覆盖: $covered_requirements"
-echo "未覆盖: $missing_count"
+echo "未覆盖: ${missing_count}"
 echo -e "覆盖率: ${GREEN}${coverage}%${NC}"
 echo ""
 
@@ -154,7 +155,7 @@ grep "^COVERED" "$TEMP_RESULTS" | while IFS='|' read -r status req_id docs; do
     echo "- 需求 $req_id: $docs" >> "$REPORT_FILE"
 done
 
-if [ $missing_count -gt 0 ]; then
+if [ "$missing_count" -gt 0 ]; then
     cat >> "$REPORT_FILE" << EOF
 
 ### 未覆盖的需求
@@ -169,7 +170,7 @@ echo "报告已生成: $REPORT_FILE"
 echo ""
 
 # 返回状态
-if [ $missing_count -eq 0 ]; then
+if [ "$missing_count" -eq 0 ]; then
     echo -e "${GREEN}✓ 所有需求都已覆盖！${NC}"
     exit 0
 else
