@@ -1,6 +1,6 @@
 # 文档命名规范验证报告
 
-生成时间: 2025-12-04 11:31:34
+生成时间: 2025-12-04 19:49:23
 
 ## 命名规范
 
@@ -26,31 +26,10 @@
 
 ## 统计摘要
 
-- **总文件数**: 37
-- **符合规范**: 28
-- **不符合规范**: 9
-- **合规率**: 75%
-
-## 不符合规范的文件
-
-- `docs/QUALITY_ASSURANCE_REPORT.md`
-  - 建议: `quality-assurance-report.md`
-- `docs/TASK_9_VERIFICATION.md`
-  - 建议: `task-9-verification.md`
-- `docs/REVIEW_REPORT.md`
-  - 建议: `review-report.md`
-- `docs/workshop/COMPLETION_REPORT.md`
-  - 建议: `completion-report.md`
-- `docs/FINAL_COMPLETENESS_CHECK.md`
-  - 建议: `final-completeness-check.md`
-- `docs/OPTIMIZATION_SUMMARY.md`
-  - 建议: `optimization-summary.md`
-- `docs/TASK_10_COMPLETENESS_CHECK.md`
-  - 建议: `task-10-completeness-check.md`
-- `docs/FINAL_VERIFICATION_REPORT.md`
-  - 建议: `final-verification-report.md`
-- `docs/CROSS_REFERENCE_VALIDATION.md`
-  - 建议: `cross-reference-validation.md`
+- **总文件数**: 41
+- **符合规范**: 41
+- **不符合规范**: 00
+- **合规率**: 100%
 
 ## 建议
 
